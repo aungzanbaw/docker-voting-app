@@ -17,3 +17,9 @@ Images pull directly from dockersamples/ repo
 * Will remove obsolete links later
 * Compose v3, old one might use `docker-compose up`
 * Check `docker ps -a`
+
+## k8 single cluster, single pod setup
+* Apps' name were hard coded inside source codes e.g Redis(host="redis"), OpeRedisConnection("redis") (no3 of 12factor)
+* We will use Service name exactly like their hard coded in code based, except **Worker** no service/user consume this
+* **DB**, **Redis** don't need to expose to external (least privilege), ClusterIP 
+* Expose **Voting**, **Result**, NodePort
