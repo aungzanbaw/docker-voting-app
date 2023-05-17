@@ -6,7 +6,7 @@ Images pull directly from dockersamples/ repo
 * **Result** - backend dashboard, express/nodejs app on port 5001:80
 * **Worker** - backend processing, C# app need redis & DB
 
-## Docker Swarm (single cluster 1 replica for all images)
+## Docker Swarm (single cluster, 1 replica for all images)
 `docker stack deploy STACK-NAME --compose-file=docker-stack.yml`
 * replace STACK-NAME with voting-app maybe
 * Check stack `docker stack ls`
@@ -23,3 +23,15 @@ Images pull directly from dockersamples/ repo
 * We will use Service name exactly like their hard coded in code based, except **Worker** no service/user consume this
 * **DB**, **Redis** don't need to expose to external (least privilege), ClusterIP 
 * Expose **Voting**, **Result**, NodePort
+
+`kubectl get pod,svc,deploy` to check running services, deployments and pods (`all` could do the job)
+
+### Running pods
+`kubectl create -f voting-app.yaml` 
+### Running services
+* We don't need to access worker pod
+* First we will exposse NodePort to user facing service like voting & result
+* We will have ClusterIP to make a stable connection, redis and db services 
+* Later we will change NodePort to LoadBalancer to host on aws, gcp or azure
+### Running deployments
+
