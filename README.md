@@ -25,13 +25,13 @@ Images pull directly from dockersamples/ repo
 * Expose **Voting**, **Result**, NodePort
 
 **Running pods**
-`kubectl create -f pod/FILENAME.yaml` 
+`kubectl create -f pod/FILENAME.yaml`   
 
 **Running services**
-`kubectl create -f service/FILENAME.yaml` 
+`kubectl create -f service/FILENAME.yaml`   
 
 `kubectl get pod,svc` to check running services and pods (`all` could do the job)
-After running all the files, we should have 4 services(2 Nodes, 2 Clusters), and 5 pods
+After running all the files, we should have 4 services(2 Nodes, 2 Clusters), and 5 pods  
 
 * We don't need to access worker pod
 * First we will exposse NodePort to user facing service like voting & result
@@ -40,10 +40,10 @@ After running all the files, we should have 4 services(2 Nodes, 2 Clusters), and
 
 ## k8 single replica/deployment setup (LOCAL)
 **Running deploy**
-`kubectl create -f deployment/FILENAME.yaml` 
+`kubectl create -f deployment/FILENAME.yaml`   
 
 **Running services**
-`kubectl create -f service/FILENAME.yaml` 
+`kubectl create -f service/FILENAME.yaml`   
 
 `kubectl get deploy,svc` to check running services and deployments (`all` could do the job)
-After running all the files, we should have 4 services(2 Nodes, 2 Clusters), and 5 deploy with single replica
+After running all the files, we should have 4 services(2 Nodes, 2 Clusters), and 5 deploy with single replica  
