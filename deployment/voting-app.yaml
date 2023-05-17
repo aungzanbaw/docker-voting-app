@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    name: voting-app-deploy
+    app: demo-voting-app
+  name: voting-app-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: voting-app-pod
+      app: demo-voting-app
+  template: 
+    metadata:
+      creationTimestamp: null
+      labels:
+        name: voting-app-pod
+        app: demo-voting-app
+      name: voting-app-pod
+    spec:
+      containers:
+      - image: dockersamples/examplevotingapp_vote
+        name: voting-app
+        ports:
+          - containerPort: 80
+        resources: {}
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always

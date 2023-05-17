@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    name: worker-app-deploy
+    app: demo-voting-app
+  name: worker-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: worker-app-pod
+      app: demo-voting-app
+  template: 
+    metadata:
+      creationTimestamp: null
+      labels:
+        name: worker-app-pod
+        app: demo-voting-app
+      name: worker-app-pod
+    spec:
+      containers:
+      - image: dockersamples/examplevotingapp_worker
+        name: worker-app
+        resources: {}
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
