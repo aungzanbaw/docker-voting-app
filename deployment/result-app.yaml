@@ -1,11 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata:
-  creationTimestamp: null
+metadata: 
   labels:
     name: result-app-deploy
     app: demo-voting-app
-  name: result-deploy
+  name: result-app-deploy
 spec:
   replicas: 1
   selector:
@@ -14,7 +13,6 @@ spec:
       app: demo-voting-app
   template: 
     metadata:
-      creationTimestamp: null
       labels:
         name: result-app-pod
         app: demo-voting-app
@@ -25,6 +23,5 @@ spec:
         name: result-app
         ports:
           - containerPort: 80
-        resources: {}
       dnsPolicy: ClusterFirst
       restartPolicy: Always
